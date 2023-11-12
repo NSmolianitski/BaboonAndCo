@@ -9,5 +9,11 @@ namespace BaboonAndCo.Extensions
             transform.localPosition = Vector3.zero;
             transform.localRotation = transform.parent.localRotation;
         }
+
+        public static bool TryGetComponentInParent<T>(this Transform transform, out T component) where T : MonoBehaviour
+        {
+            component = transform.GetComponentInParent<T>();
+            return component != null;
+        }
     }
 }
